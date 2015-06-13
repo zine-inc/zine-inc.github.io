@@ -63,7 +63,7 @@ var App = React.createClass({
             <main>
                 <header className="container">
                     <h1>zine-inc.github.io</h1>
-                    <p>ZINE is built on open source software. <a href="https://github.com/twitter/repositories">View All on GitHub</a></p>
+                    <p>ZINE is built on open source software. <a href="https://github.com/zine-inc/repositories">View All on GitHub</a></p>
                 </header>
 
                 <div className="container">
@@ -103,8 +103,8 @@ var News = React.createClass({
                         <div className="caption">
                             <h3>Statistics</h3>
                             <ul>
-                                <li><a href="https://github.com/twitter/repositories">3 public repos</a></li>
-                                <li><a href="https://github.com/twitter?tab=members">3 members</a></li>
+                                <li><a href="https://github.com/zine-inc/repositories">3 public repos</a></li>
+                                <li><a href="https://github.com/zine-inc?tab=members">3 members</a></li>
                             </ul>
                         </div>
                     </div>
