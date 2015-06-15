@@ -3,7 +3,7 @@ var App = React.createClass({
         return {
             loading: false,
             error  : false,
-            news   : [],
+            repos  : [],
             xhr    : null
         };
     },
@@ -17,38 +17,14 @@ var App = React.createClass({
             this.state.xhr.abort();
         }
 
-        // var url = 'https://api.github.com/repos/' + this.state.repo + '/issues?page=' + (this.state.lastLoadedPage + 1);
-        // var xhr = $.get(url, this.gotData, 'json').fail(this.failed);
-
-        this.gotData([
-            {
-                title : 'vaaw',
-                link  : '#',
-                domain: 'VAAW (vagrant-ansible-amazonlinux-wordpress)'
-            },
-            {
-                title : 'ansible-role-wordpress',
-                link  : '#',
-                domain: 'Ansible Role: Wordpress'
-            },
-            {
-                title : 'ansible-role-base',
-                link  : '#',
-                domain: 'Ansible Role: base'
-            }
-        ]);
-
-        this.setState({
-            error  : false,
-            loading: true,
-            xhr    : null
-            // xhr    : xhr
-        });
+        var url = 'https://api.github.com/orgs/zine-inc/repos';
+        var xhr = $.get(url, this.gotData, 'json').fail(this.failed);
+        this.setState({ error: false, loading: true, xhr: xhr });
     },
     gotData: function(data) {
         this.setState({
             loading: false,
-            news   : this.state.news.concat(data),
+            repos  : this.state.repos.concat(data),
             error  : false,
             xhr    : null
         });
@@ -67,22 +43,27 @@ var App = React.createClass({
                 </header>
 
                 <div className="container">
-                    <News news={this.state.news}/>
+                    <Repos repos={this.state.repos}/>
                 </div>
             </main>
         );
     }
 });
 
-var Entry = React.createClass({
+var Repo = React.createClass({
     render: function() {
-        var entry = this.props.entry;
+        var repo = this.props.repo;
         return (
             <div className="col-sm-3">
-                <a href="#" className="thumbnail">
+                <a href={repo.html_url} className="thumbnail">
                     <div className="caption">
-                        <h3>{entry.title}</h3>
-                        <p>{entry.domain}</p>
+                        <h2 className="h3">{repo.name}</h2>
+                        <p>{repo.description}</p>
+                        <ul className="h6 text-muted">
+                            <li>{repo.language}</li>
+                            <li>{repo.watchers_count} watchers / {repo.stargazers_count} stars / {repo.forks} forks</li>
+                            <li>{repo.updated_at}</li>
+                        </ul>
                     </div>
                 </a>
             </div>
@@ -90,27 +71,14 @@ var Entry = React.createClass({
     }
 });
 
-var News = React.createClass({
+var Repos = React.createClass({
     render: function() {
-        var rows = this.props.news.map(function(entry) {
-            return (<Entry key={entry.id} entry={entry}></Entry>);
+        var rows = this.props.repos.map(function(repo) {
+            return (<Repo key={repo.id} repo={repo}></Repo>);
         });
 
         return (
-            <div className="row">
-                <div className="col-sm-3">
-                    <div className="thumbnail">
-                        <div className="caption">
-                            <h3>Statistics</h3>
-                            <ul>
-                                <li><a href="https://github.com/zine-inc/repositories">3 public repos</a></li>
-                                <li><a href="https://github.com/zine-inc?tab=members">3 members</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                {rows}
-            </div>
+            <div className="row">{rows}</div>
         );
     }
 });
