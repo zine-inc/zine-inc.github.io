@@ -37,7 +37,7 @@ var App = React.createClass({
     render: function() {
         return (
             <main>
-                <header className="container">
+                <header className="container text-center">
                     <h1>zine-inc.github.io</h1>
                     <p>ZINE is built on open source software. <a href="https://github.com/zine-inc/repositories">View All on GitHub</a></p>
                 </header>
