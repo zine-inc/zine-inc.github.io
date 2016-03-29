@@ -83,7 +83,7 @@ var Repos = React.createClass({
     }
 });
 
-React.render(
+ReactDOM.render(
     <App></App>,
     document.getElementById('app')
 );
