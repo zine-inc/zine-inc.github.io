@@ -55,7 +55,7 @@ var Repo = React.createClass({
         var repo = this.props.repo;
         return (
             <div className="col-sm-3">
-                <a href="{repo.html_url}" className="card card-block">
+                <a href={repo.html_url} className="card card-block">
                     <h2 className="card-title h4">{repo.name}</h2>
                     <p className="card-text">{repo.description}</p>
                     <p className="card-text"><small className="text-muted">{repo.updated_at}</small></p>
