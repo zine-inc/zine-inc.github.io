@@ -38,7 +38,7 @@ var App = React.createClass({
         return (
             <main>
                 <header className="container text-center">
-                    <h1>zine-inc.github.io</h1>
+                    <h1><i className="salmicon salmicon-face"></i></h1>
                     <p>ZINE is built on open source software. <a href="https://github.com/zine-inc/repositories">View All on GitHub</a></p>
                 </header>
 
@@ -55,15 +55,21 @@ var Repo = React.createClass({
         var repo = this.props.repo;
         return (
             <div className="col-sm-3">
-                <a href={repo.html_url} className="thumbnail">
-                    <div className="caption">
-                        <h2 className="h3">{repo.name}</h2>
-                        <p>{repo.description}</p>
-                        <ul className="h6 text-muted">
-                            <li>{repo.language}</li>
-                            <li>{repo.watchers_count} watchers / {repo.stargazers_count} stars / {repo.forks} forks</li>
-                            <li>{repo.updated_at}</li>
-                        </ul>
+                <a href="{repo.html_url}" className="card card-block">
+                    <h2 className="card-title h4">{repo.name}</h2>
+                    <p className="card-text">{repo.description}</p>
+                    <p className="card-text"><small className="text-muted">{repo.updated_at}</small></p>
+                    <div className="btn-group btn-group-sm">
+                        <button type="button" className="btn btn-secondary"><i className="octicon octicon-eye"></i></button>
+                        <button type="button" className="btn btn-secondary">{repo.watchers_count}</button>
+                    </div>
+                    <div className="btn-group btn-group-sm">
+                        <button type="button" className="btn btn-secondary"><i className="octicon octicon-star"></i></button>
+                        <button type="button" className="btn btn-secondary">{repo.stargazers_count}</button>
+                    </div>
+                    <div className="btn-group btn-group-sm">
+                        <button type="button" className="btn btn-secondary"><i className="octicon octicon-repo-forked"></i></button>
+                        <button type="button" className="btn btn-secondary">{repo.forks}</button>
                     </div>
                 </a>
             </div>

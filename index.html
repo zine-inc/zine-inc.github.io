@@ -9,8 +9,9 @@
 <meta http-equiv="cleartype" content="on">
 <title>zine-inc.github.io</title>
 <link rel="shortcut icon" href="favicon-194x194.png">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" rel="stylesheet">
+<link href="//cdn.salmicat.com/assets/salmicons/salmicons.css" rel="stylesheet">
 <style>
 html, body, table, input, textarea, select, button {
     -webkit-font-smoothing: antialiased;
@@ -26,36 +27,61 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1 {
     color: #666;
-    font-size: 60px;
-    font-weight: 100;
-    letter-spacing: -1px;
+    font-size: 120px;
 }
 main {
     padding: 40px 0;
+    min-height: 100vh;
 }
 header {
     margin-bottom: 30px;
+    text-align: center;
 }
-a:hover, a:focus {
-    text-decoration: none;
-}
-.thumbnail {
+a.card {
+    color: #333;
+    font-size: 85%;
     height: 200px;
     overflow: hidden;
-    border-color: rgba(0, 0, 255, 0);
-    border-radius: 0;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    transition: all 0.2s linear;
 }
-.thumbnail h2 {
-    margin-top: 0;
+a.card:hover, a.card:focus {
+    color: #333;
+    text-decoration: none;
+    border-color: #0275d8;
+}
+a.card .card-text {
+    margin-bottom: .5rem;
+}
+a.card .btn-group {
+    margin-right: 5px;
+}
+a.card .btn-group:last-child {
+    margin-right: 0;
+}
+a.card .btn-group .btn {
+    padding: .125rem .475rem;
+    font-size: .8rem;
+    line-height: 1.4;
+}
+a.card .btn-group .btn:hover,
+a.card .btn-group .btn:focus {
+    color: inherit;
+    background-color: inherit;
+    border-color: #ccc;
 }
 @media screen and (max-width: 480px) {
     h1 {
-        font-size: 45px;
+        font-size: 60px;
+    }
+    header {
+        margin-bottom: 0;
     }
     main {
         padding: 20px 0;
     }
-    .thumbnail {
+    a.card {
         height: 170px;
     }
 }
