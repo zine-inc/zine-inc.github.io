@@ -58,7 +58,7 @@ var Repo = React.createClass({
                 <a href={repo.html_url} className="card card-block">
                     <h2 className="card-title h4">{repo.name}</h2>
                     <p className="card-text">{repo.description}</p>
-                    <p className="card-text"><small className="text-muted">{repo.updated_at}</small></p>
+                    <p className="card-text text-xs-right"><small className="text-muted">{repo.updated_at}</small></p>
                     <div className="btn-group btn-group-sm">
                         <button type="button" className="btn btn-secondary"><i className="octicon octicon-eye"></i></button>
                         <button type="button" className="btn btn-secondary">{repo.watchers_count}</button>
